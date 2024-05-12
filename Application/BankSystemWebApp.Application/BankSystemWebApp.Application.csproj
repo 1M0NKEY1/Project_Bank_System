@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Folder Include="Users\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.0-preview.3.24172.9" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\BankSystemWebApp.Application.Abstractions\BankSystemWebApp.Application.Abstractions.csproj" />
+      <ProjectReference Include="..\BankSystemWebApp.Application.Contracts\BankSystemWebApp.Application.Contracts.csproj" />
+    </ItemGroup>
+
+</Project>

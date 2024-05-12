@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankSystemWebApp", "BankSystemWebApp\BankSystemWebApp.csproj", "{770399FC-58C8-4D29-8D8C-6C7842A82EC9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{BD187B16-7335-4CF0-85B0-18AE5E4FAA2C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{37BE354D-2532-43DD-9E0B-55BBA159D270}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{3F9ED2D9-B5FC-4F56-A7F9-15447E851938}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataBase", "DataBase", "{27032BB6-1FC3-444C-BC8F-68E10EF99A6B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankSystemWebApp.Application", "Application\BankSystemWebApp.Application\BankSystemWebApp.Application.csproj", "{AB37F09D-49BA-4D68-84A9-DFB561BE925A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankSystemWebApp.Application.Abstractions", "Application\BankSystemWebApp.Application.Abstractions\BankSystemWebApp.Application.Abstractions.csproj", "{39A093E8-9E1E-48FC-BCC1-4E2E60B9E4DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankSystemWebApp.Application.Contracts", "Application\BankSystemWebApp.Application.Contracts\BankSystemWebApp.Application.Contracts.csproj", "{56683834-3D0E-4D78-9280-2EBC7E174A7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankSystemWebApp.Application.Models", "Application\BankSystemWebApp.Application.Models\BankSystemWebApp.Application.Models.csproj", "{A0FEE7E0-2027-4ACC-8341-16BB27A6812C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankSystmeWebApp.Infrastructure.DataAccess", "BankSystmeWebApp.Infrastructure.DataAccess\BankSystmeWebApp.Infrastructure.DataAccess.csproj", "{C0D12040-B6A3-43E0-9AD2-FDA24978B787}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{770399FC-58C8-4D29-8D8C-6C7842A82EC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{770399FC-58C8-4D29-8D8C-6C7842A82EC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{770399FC-58C8-4D29-8D8C-6C7842A82EC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{770399FC-58C8-4D29-8D8C-6C7842A82EC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB37F09D-49BA-4D68-84A9-DFB561BE925A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB37F09D-49BA-4D68-84A9-DFB561BE925A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB37F09D-49BA-4D68-84A9-DFB561BE925A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB37F09D-49BA-4D68-84A9-DFB561BE925A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39A093E8-9E1E-48FC-BCC1-4E2E60B9E4DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39A093E8-9E1E-48FC-BCC1-4E2E60B9E4DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39A093E8-9E1E-48FC-BCC1-4E2E60B9E4DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39A093E8-9E1E-48FC-BCC1-4E2E60B9E4DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56683834-3D0E-4D78-9280-2EBC7E174A7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56683834-3D0E-4D78-9280-2EBC7E174A7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56683834-3D0E-4D78-9280-2EBC7E174A7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56683834-3D0E-4D78-9280-2EBC7E174A7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0FEE7E0-2027-4ACC-8341-16BB27A6812C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0FEE7E0-2027-4ACC-8341-16BB27A6812C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0FEE7E0-2027-4ACC-8341-16BB27A6812C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0FEE7E0-2027-4ACC-8341-16BB27A6812C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0D12040-B6A3-43E0-9AD2-FDA24978B787}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0D12040-B6A3-43E0-9AD2-FDA24978B787}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0D12040-B6A3-43E0-9AD2-FDA24978B787}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0D12040-B6A3-43E0-9AD2-FDA24978B787}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AB37F09D-49BA-4D68-84A9-DFB561BE925A} = {BD187B16-7335-4CF0-85B0-18AE5E4FAA2C}
+		{39A093E8-9E1E-48FC-BCC1-4E2E60B9E4DA} = {BD187B16-7335-4CF0-85B0-18AE5E4FAA2C}
+		{56683834-3D0E-4D78-9280-2EBC7E174A7A} = {BD187B16-7335-4CF0-85B0-18AE5E4FAA2C}
+		{A0FEE7E0-2027-4ACC-8341-16BB27A6812C} = {BD187B16-7335-4CF0-85B0-18AE5E4FAA2C}
+		{C0D12040-B6A3-43E0-9AD2-FDA24978B787} = {37BE354D-2532-43DD-9E0B-55BBA159D270}
+	EndGlobalSection
+EndGlobal
