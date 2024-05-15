@@ -1,10 +1,14 @@
-﻿using Models.Users;
-
+﻿
 namespace Models.Accounts;
 
 public record Account(
     long id,
     long bankId,
-    User user,
+    string Name,
+    string Surname,
+    string Age,
+    string email,
+    int Passport,
+    string Address,
     long pin,
     decimal balance);

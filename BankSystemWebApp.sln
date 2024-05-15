@@ -9,6 +9,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{3F9ED2D9-B5FC-4F56-A7F9-15447E851938}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataBase", "DataBase", "{27032BB6-1FC3-444C-BC8F-68E10EF99A6B}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+		.env = .env
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankSystemWebApp.Application", "Application\BankSystemWebApp.Application\BankSystemWebApp.Application.csproj", "{AB37F09D-49BA-4D68-84A9-DFB561BE925A}"
 EndProject
