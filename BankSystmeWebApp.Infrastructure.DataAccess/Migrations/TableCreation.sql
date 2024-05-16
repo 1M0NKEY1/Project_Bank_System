@@ -36,7 +36,6 @@ create table AccountPin (
 create table AccountOperationHistory (
     accountId int not null references Accounts (Id),
     operationType text not null,
-    deltaMoney numeric
 );
 
 create table BankOperationHistory (
