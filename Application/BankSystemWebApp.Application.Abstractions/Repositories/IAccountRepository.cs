@@ -17,4 +17,5 @@ public interface IAccountRepository
     Task RemoveMoney(long id, decimal money);
     Task TransferMoney(long id, long AddresseeId, decimal money);
     Task<IList<string>> ShowAccountHistory(long id);
+    Task<IList<string>> ShowAllNotifications(long id);
 }

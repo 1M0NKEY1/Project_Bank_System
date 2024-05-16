@@ -5,5 +5,5 @@ namespace BankSystemWebApp.Application.Banks;
 
 public class CurrentBankManager : ICurrentBankManager
 {
-    public Bank? Bank { get; set; }
+    public Task<Bank>? Bank { get; set; }
 }

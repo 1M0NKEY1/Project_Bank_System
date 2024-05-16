@@ -42,18 +42,18 @@ internal class AccountService : IAccountService
         return new OperationResult.Completed();
     }
 
-    public decimal ShowAccountBalance()
+    public async Task<decimal> ShowAccountBalance()
     {
         if (_currentAccount.Account is null) return 0;
 
-        return _repository.ShowAccountBalance(_currentAccount.Account.id);
+        return await _repository.ShowAccountBalance(_currentAccount.Account.Id);
     }
 
     public OperationResult AddMoney(decimal money)
     {
         if (_currentAccount.Account is null) return new OperationResult.Rejected();
         
-        _repository.AddMoney(_currentAccount.Account.id, money);
+        _repository.AddMoney(_currentAccount.Account.Id, money);
         return new OperationResult.Completed();
     }
 
@@ -61,7 +61,7 @@ internal class AccountService : IAccountService
     {
         if (_currentAccount.Account is null) return new OperationResult.Rejected();
         
-        _repository.RemoveMoney(_currentAccount.Account.id, money);
+        _repository.RemoveMoney(_currentAccount.Account.Id, money);
         return new OperationResult.Completed();
     }
 
@@ -69,7 +69,7 @@ internal class AccountService : IAccountService
     {
         if (_currentAccount.Account is null) return new OperationResult.Rejected();
         
-        _repository.TransferMoney(_currentAccount.Account.id, addresseeId, money);
+        _repository.TransferMoney(_currentAccount.Account.Id, addresseeId, money);
         return new OperationResult.Completed();
     }
 
@@ -77,7 +77,15 @@ internal class AccountService : IAccountService
     {
         if (_currentAccount.Account is null) return new OperationResult.Rejected();
 
-        _repository.ShowAccountHistory(_currentAccount.Account.id);
+        _repository.ShowAccountHistory(_currentAccount.Account.Id);
+        return new OperationResult.Completed();
+    }
+
+    public OperationResult ShowAllNotifications()
+    {
+        if (_currentAccount.Account is null) return new OperationResult.Rejected();
+
+        _repository.ShowAllNotifications(_currentAccount.Account.Id);
         return new OperationResult.Completed();
     }
 }

@@ -5,5 +5,5 @@ namespace BankSystemWebApp.Application.Accounts;
 
 internal class CurrentAccountManager : ICurrentAccountManager
 {
-    public Account? Account { get; set; }
+    public Task<Account>? Account { get; set; }
 }

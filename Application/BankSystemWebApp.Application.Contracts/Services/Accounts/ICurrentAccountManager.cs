@@ -4,5 +4,5 @@ namespace BankSystemWebApp.Application.Contracts.Services.Accounts;
 
 public interface ICurrentAccountManager
 {
-    Account Account { get; }
+    Task<Account>? Account { get; }
 }

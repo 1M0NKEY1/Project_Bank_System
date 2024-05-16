@@ -6,20 +6,20 @@ namespace BankSystemWebApp.Application.Abstractions.Repositories;
 
 public interface IBankRepository
 {
-    Bank? FindBankByName(string name, long adminEntryKey);
+    Task<Bank>? FindBankByName(string name, long adminEntryKey);
 
-    Account? FindAccountById(long accountId);
+    Task<Account>? FindAccountById(long accountId);
 
-    void TransferMoneyToAnotherBank(long id, long anotherBankId);
+    Task TransferMoneyToAnotherBank(long id, long anotherBankId);
 
-    void ChangeLimitsForCreditCard(long accountId, decimal sum);
+    Task ChangeLimitsForCreditCard(long accountId, decimal sum);
 
-    void ChangePercentageOfCredit(long accountId, float percent);
+    Task ChangePercentageOfCredit(long accountId, float percent);
 
-    void CancelTransaction(long accountId);
+    Task CancelTransaction(long accountId);
 
-    IList<string> HistoryOfTransactions();
+    Task<IList<string>> HistoryOfTransactions();
     
-    void UserNotification(long accountId, ITypeOfOperation operation);
+    Task UserNotification(long accountId, ITypeOfOperation operation);
     
 }

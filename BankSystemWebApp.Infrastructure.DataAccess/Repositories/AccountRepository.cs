@@ -143,6 +143,30 @@ public class AccountRepository : IAccountRepository
         return tmpList;
     }
 
+    public async Task<IList<string>> ShowAllNotifications(long id)
+    {
+        var tmpList = new List<string>();
+        const string request = """
+                               select notifications
+                               from accountnotifications
+                               where accountid = @id;
+                               """;
+        
+        await using var connection = await DatabaseConnection.GetCConnectionAsync();
+
+        await using var command = new NpgsqlCommand(request, connection);
+        command.Parameters.Add(new NpgsqlParameter("accountId", id));
+
+        await using var reader = command.ExecuteReader();
+
+        while (reader.Read())
+        {
+            tmpList.Add(reader.GetString(0));
+        }
+
+        return tmpList;
+    }
+
     private static async Task UpdateOperationInHistory(long id, string operation)
     {
         const string request = """

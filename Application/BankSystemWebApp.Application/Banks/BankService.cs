@@ -44,7 +44,7 @@ internal class BankService : IBankService
     {
         if (_currentBankManager.Bank is null) return new OperationResult.Rejected();
         
-        _repository.TransferMoneyToAnotherBank(_currentBankManager.Bank.id, anotherBankId);
+        _repository.TransferMoneyToAnotherBank(_currentBankManager.Bank.Id, anotherBankId);
         return new OperationResult.Completed();
     }
 
@@ -52,7 +52,7 @@ internal class BankService : IBankService
     {
         if (_currentAccountManager?.Account is null) return new OperationResult.Rejected();
         
-        _repository.ChangeLimitsForCreditCard(_currentAccountManager.Account.id, sum);
+        _repository.ChangeLimitsForCreditCard(_currentAccountManager.Account.Id, sum);
         _operation = new OperationChangeLimits();
         return new OperationResult.Completed();
     }
@@ -61,7 +61,7 @@ internal class BankService : IBankService
     {
         if (_currentAccountManager?.Account is null) return new OperationResult.Rejected();
         
-        _repository.ChangePercentageOfCredit(_currentAccountManager.Account.id, percent);
+        _repository.ChangePercentageOfCredit(_currentAccountManager.Account.Id, percent);
         _operation = new OperationChangePercent();
         return new OperationResult.Completed();
     }
@@ -70,7 +70,7 @@ internal class BankService : IBankService
     {
         if (_currentAccountManager?.Account is null) return new OperationResult.Rejected();
 
-        _repository.CancelTransaction(_currentAccountManager.Account.id);
+        _repository.CancelTransaction(_currentAccountManager.Account.Id);
         _operation = new OperationCancelTransaction();
         return new OperationResult.Completed();
     }
@@ -87,7 +87,7 @@ internal class BankService : IBankService
     {
         if (_currentAccountManager?.Account is null) return new OperationResult.Rejected();
 
-        if (_operation != null) _repository.UserNotification(_currentAccountManager.Account.id, _operation);
+        if (_operation != null) _repository.UserNotification(_currentAccountManager.Account.Id, _operation);
         return new OperationResult.Completed();
     }
 }

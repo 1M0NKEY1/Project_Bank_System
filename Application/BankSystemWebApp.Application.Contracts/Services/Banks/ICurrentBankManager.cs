@@ -4,5 +4,5 @@ namespace Contracts.Banks;
 
 public interface ICurrentBankManager
 {
-    Bank? Bank { get; }
+    Task<Bank>? Bank { get; }
 }

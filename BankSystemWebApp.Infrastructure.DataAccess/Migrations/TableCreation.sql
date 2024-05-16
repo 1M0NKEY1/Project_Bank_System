@@ -35,7 +35,12 @@ create table AccountPin (
 
 create table AccountOperationHistory (
     accountId int not null references Accounts (Id),
-    operationType text not null,
+    operationType text not null
+);
+
+create table AccountNotifications (
+    accountId int not null references Accounts(id),
+    notifications text not null
 );
 
 create table BankOperationHistory (
