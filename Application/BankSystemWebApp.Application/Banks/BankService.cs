@@ -44,7 +44,7 @@ internal class BankService : IBankService
     {
         if (_currentBankManager.Bank is null) return new OperationResult.Rejected();
         
-        _repository.TransferMoneyToAnotherBank(_currentBankManager.Bank.Id, anotherBankId);
+        _repository.TransferMoneyToAnotherBank(_currentBankManager.Bank.Id, anotherBankId, TODO);
         return new OperationResult.Completed();
     }
 

@@ -1,13 +1,3 @@
-create table Banks (
-    Id serial primary key,
-    Name text not null
-);
-
-create table BanksBalance (
-    bankId int not null references Banks (Id),
-    Balance numeric
-);
-
 create table Accounts (
     bankId int not null references Banks (Id),
     Id serial primary key,
@@ -41,10 +31,4 @@ create table AccountOperationHistory (
 create table AccountNotifications (
     accountId int not null references Accounts(id),
     notifications text not null
-);
-
-create table BankOperationHistory (
-    bankId int not null references Banks (Id),
-    operationType text not null,
-    deltaMoney numeric
 );

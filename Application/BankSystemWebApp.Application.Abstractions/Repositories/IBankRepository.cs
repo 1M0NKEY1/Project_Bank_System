@@ -6,11 +6,13 @@ namespace BankSystemWebApp.Application.Abstractions.Repositories;
 
 public interface IBankRepository
 {
-    Task<Bank>? FindBankByName(string name, long adminEntryKey);
+    Task<Bank?> FindBankByName(string name, long adminEntryKey);
 
-    Task<Account>? FindAccountById(long accountId);
+    Task<Account?> FindAccountById(long accountId);
 
-    Task TransferMoneyToAnotherBank(long id, long anotherBankId);
+    Task CreateBank(string name, long adminEntryKey);
+
+    Task TransferMoneyToAnotherBank(long id, long addresseeBankId, decimal money);
 
     Task ChangeLimitsForCreditCard(long accountId, decimal sum);
 

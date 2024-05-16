@@ -6,4 +6,5 @@ namespace Models.Banks;
 public record Bank(
     long id,
     string name,
-    long adminEntryKey);
+    long adminEntryKey,
+    decimal balance);

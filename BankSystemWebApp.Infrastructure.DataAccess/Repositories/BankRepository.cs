@@ -1,25 +1,66 @@
-﻿using BankSystemWebApp.Application.Abstractions.Repositories;
+﻿using System.Data.SqlClient;
+using BankSystemWebApp.Application.Abstractions.Repositories;
 using BankSystemWebApp.Application.Contracts.Operations.Services;
+using Microsoft.EntityFrameworkCore;
 using Models.Accounts;
 using Models.Banks;
+using Npgsql;
 
 namespace DataAccess.Repositories;
 
 public class BankRepository : IBankRepository
 {
-    public Task<Bank>? FindBankByName(string name, long adminEntryKey)
+    private readonly ApplicationContext _dbContext;
+
+    public BankRepository(ApplicationContext dbContext)
     {
-        throw new NotImplementedException();
+        _dbContext = dbContext;
+    }
+    public async Task<Bank?> FindBankByName(string name, long adminEntryKey)
+    {
+        return await _dbContext.Banks
+            .Where(a => a.name == name)
+            .FirstOrDefaultAsync(a => a.adminEntryKey == adminEntryKey);
     }
 
-    public Task<Account>? FindAccountById(long accountId)
+    public async Task<Account?> FindAccountById(long accountId)
     {
-        throw new NotImplementedException();
+        return await _dbContext.Accounts
+            .Where(a => a.id == accountId)
+            .FirstOrDefaultAsync();
     }
 
-    public Task TransferMoneyToAnotherBank(long id, long anotherBankId)
+    public async Task CreateBank(string name, long adminEntryKey)
     {
-        throw new NotImplementedException();
+        const string request = """
+                               insert into banks (name) values (@name);
+                               insert into banksentrykeys (adminEntryKey)
+                               values (@adminEntryKey);
+                               """;
+        await using var connection = await DatabaseConnection.GetCConnectionAsync();
+
+        await using var command = new NpgsqlCommand(request, connection);
+        command.Parameters.Add(new SqlParameter("name", name));
+        command.Parameters.Add(new SqlParameter("adminEntryKey", adminEntryKey));
+
+        await command.ExecuteNonQueryAsync();
+    }
+
+    public async Task TransferMoneyToAnotherBank(long id, long addresseeBankId, decimal money)
+    {
+        var bank = await _dbContext.Banks.FindAsync(id);
+        var transferredBank = await _dbContext.Banks.FindAsync(addresseeBankId);
+
+        if (bank is not null)
+        {
+            if (transferredBank is not null)
+            {
+                bank = bank with { balance = bank.balance - money };
+                transferredBank = transferredBank with { balance = transferredBank.balance + money };
+
+                await _dbContext.SaveChangesAsync();
+            }
+        }
     }
 
     public Task ChangeLimitsForCreditCard(long accountId, decimal sum)
