@@ -11,6 +11,7 @@ namespace DataAccess.Repositories;
 public class AccountRepository : IAccountRepository
 {
     private const decimal StartBalance = 0;
+    private const decimal StartBalanceCredit = 100000;
     private readonly ApplicationContext _dbContext;
 
     public AccountRepository(ApplicationContext dbContext)
@@ -46,7 +47,16 @@ public class AccountRepository : IAccountRepository
         command.Parameters.Add(new SqlParameter("address", address));
         command.Parameters.Add(new SqlParameter("type", typeOfCard));
         command.Parameters.Add(new SqlParameter("passport", passport));
-        command.Parameters.Add(new SqlParameter("balance", StartBalance));
+        
+        if (typeOfCard is TypeOfCard.Classical or TypeOfCard.Deposit)
+        {
+            command.Parameters.Add(new SqlParameter("balance", StartBalance));
+        }
+        else
+        {
+            command.Parameters.Add(new SqlParameter("balance", StartBalanceCredit));
+        }
+        
 
         await command.ExecuteNonQueryAsync();
     }

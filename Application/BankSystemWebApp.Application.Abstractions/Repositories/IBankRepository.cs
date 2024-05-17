@@ -16,11 +16,11 @@ public interface IBankRepository
 
     Task ChangeLimitsForCreditCard(long accountId, decimal sum);
 
-    Task ChangePercentageOfCredit(long accountId, float percent);
+    Task ChangePercentageForCreditCard(long accountId, float percent);
 
-    Task CancelTransaction(long accountId);
+    Task CancelTransaction(long accountId, long addresseeId, decimal money);
 
-    Task<IList<string>> HistoryOfTransactions();
+    Task<IList<string>> HistoryOfTransactions(long accountId);
     
     Task UserNotification(long accountId, ITypeOfOperation operation);
     

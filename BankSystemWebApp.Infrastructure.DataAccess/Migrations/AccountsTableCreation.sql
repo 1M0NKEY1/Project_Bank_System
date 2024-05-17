@@ -5,7 +5,7 @@ create type AccountType as enum (
 );
 
 create table Accounts (
-    bankId int not null references Banks (Id),
+    bankId int not null references Banks (id),
     id serial primary key,
     name text not null,
     surname text not null,
@@ -16,22 +16,27 @@ create table Accounts (
 );
 
 create table AccountPassport (
-    accountId int not null references Accounts (Id),
+    accountId int not null references Accounts (id),
     Passport int
 );
 
 create table AccountBalance (
-    accountId int not null references Accounts (Id),
+    accountId int not null references Accounts (id),
     Balance numeric
 );
 
 create table AccountPin (
-    accountId int not null references Accounts (Id),
+    accountId int not null references Accounts (id),
     PIN bigint
 );
 
+create table AccountCreditPercentage (
+    accountId int not null references Accounts (id),
+    percent float
+);
+
 create table AccountOperationHistory (
-    accountId int not null references Accounts (Id),
+    accountId int not null references Accounts (id),
     operationType text not null
 );
 

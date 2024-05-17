@@ -61,7 +61,7 @@ internal class BankService : IBankService
     {
         if (_currentAccountManager?.Account is null) return new OperationResult.Rejected();
         
-        _repository.ChangePercentageOfCredit(_currentAccountManager.Account.Id, percent);
+        _repository.ChangePercentageForCreditCard(_currentAccountManager.Account.Id, percent);
         _operation = new OperationChangePercent();
         return new OperationResult.Completed();
     }
@@ -70,7 +70,7 @@ internal class BankService : IBankService
     {
         if (_currentAccountManager?.Account is null) return new OperationResult.Rejected();
 
-        _repository.CancelTransaction(_currentAccountManager.Account.Id);
+        _repository.CancelTransaction(_currentAccountManager.Account.Id, TODO, TODO);
         _operation = new OperationCancelTransaction();
         return new OperationResult.Completed();
     }
@@ -79,7 +79,7 @@ internal class BankService : IBankService
     {
         if (_currentBankManager.Bank is null) return new OperationResult.Rejected();
 
-        _repository.HistoryOfTransactions();
+        _repository.HistoryOfTransactions(TODO);
         return new OperationResult.Completed();
     }
 

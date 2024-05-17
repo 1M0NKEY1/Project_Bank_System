@@ -15,6 +15,5 @@ create table BanksBalance (
 
 create table BankOperationHistory (
     bankId int not null references Banks (Id),
-    operationType text not null,
-    deltaMoney numeric
+    operationType text not null
 );
