@@ -3,6 +3,7 @@ using System.Globalization;
 using BankSystemWebApp.Application.Abstractions.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Models.Accounts;
+using Models.Accounts.TypesOfAccount;
 using Npgsql;
 
 namespace DataAccess.Repositories;
@@ -24,11 +25,11 @@ public class AccountRepository : IAccountRepository
             .FirstOrDefaultAsync(a => a.pin == pin);
     }
 
-    public async Task SignUp(string name, string surname, long pin, string age, string email, int passport, string address)
+    public async Task SignUp(string name, string surname, long pin, string age, string email, int passport, string address, TypeOfCard typeOfCard)
     {
         const string request = """
-                               insert into accounts (Name, Surname, Age, Email, Address)
-                               values (@name, @surname, @age, @email, @address);
+                               insert into accounts (name, surname, age, email, address, type)
+                               values (@name, @surname, @age, @email, @address, @typeOfCard);
                                insert into accountpassport (passport) values (@passport);
                                insert into accountpin (pin) values (@pin);
                                insert into accountbalance (balance) values (@StartBalance);
@@ -43,6 +44,7 @@ public class AccountRepository : IAccountRepository
         command.Parameters.Add(new SqlParameter("age", age));
         command.Parameters.Add(new SqlParameter("email", email));
         command.Parameters.Add(new SqlParameter("address", address));
+        command.Parameters.Add(new SqlParameter("type", typeOfCard));
         command.Parameters.Add(new SqlParameter("passport", passport));
         command.Parameters.Add(new SqlParameter("balance", StartBalance));
 

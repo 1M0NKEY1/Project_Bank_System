@@ -1,11 +1,18 @@
+create type AccountType as enum (
+    'Classic',
+    'Credit',
+    'Deposit'
+);
+
 create table Accounts (
     bankId int not null references Banks (Id),
-    Id serial primary key,
-    Name text not null,
-    Surname text not null,
-    Age date,
-    Email text not null,
-    Address text not null
+    id serial primary key,
+    name text not null,
+    surname text not null,
+    age date,
+    email text not null,
+    address text not null,
+    type AccountType
 );
 
 create table AccountPassport (

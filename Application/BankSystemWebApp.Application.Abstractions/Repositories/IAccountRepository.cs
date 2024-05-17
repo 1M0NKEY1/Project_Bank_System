@@ -1,4 +1,5 @@
 ﻿using Models.Accounts;
+using Models.Accounts.TypesOfAccount;
 
 namespace BankSystemWebApp.Application.Abstractions.Repositories;
 
@@ -11,7 +12,8 @@ public interface IAccountRepository
         string age,
         string email,
         int passport,
-        string address);
+        string address,
+        TypeOfCard typeOfCard);
     Task<decimal> ShowAccountBalance(long id);
     Task AddMoney(long id, decimal money);
     Task RemoveMoney(long id, decimal money);

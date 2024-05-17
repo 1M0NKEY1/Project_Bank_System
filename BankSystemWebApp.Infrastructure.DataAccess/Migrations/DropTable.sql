@@ -7,3 +7,5 @@ drop table if exists AccountPin cascade;
 drop table if exists AccountOperationHistory cascade;
 drop table if exists BankOperationHistory cascade;
 drop table if exists AccountNotifications cascade;
+drop table if exists BanksEntryKeys cascade;
+drop type if exists accounttype cascade;

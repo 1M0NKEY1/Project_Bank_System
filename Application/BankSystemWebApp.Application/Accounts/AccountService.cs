@@ -2,6 +2,7 @@
 using BankSystemWebApp.Application.Contracts.Services.Accounts;
 using Contracts.LoginResults;
 using Contracts.OperationResults;
+using Models.Accounts.TypesOfAccount;
 
 namespace BankSystemWebApp.Application.Accounts;
 
@@ -26,7 +27,15 @@ internal class AccountService : IAccountService
         return new LoginResult.Success();
     }
 
-    public OperationResult SignUp(string name, string surname, long pin, string age, string email, int passport, string address)
+    public OperationResult SignUp(
+        string name, 
+        string surname, 
+        long pin, 
+        string age, 
+        string email, 
+        int passport, 
+        string address, 
+        TypeOfCard typeOfCard)
     {
         var account = _repository.FindAccountByName(name, surname, pin);
         if (account is not null) return new OperationResult.Rejected();
@@ -38,7 +47,8 @@ internal class AccountService : IAccountService
             age,
             email,
             passport,
-            address);
+            address,
+            typeOfCard);
         return new OperationResult.Completed();
     }
 

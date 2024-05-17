@@ -1,4 +1,6 @@
 ﻿
+using Models.Accounts.TypesOfAccount;
+
 namespace Models.Accounts;
 
 public record Account(
@@ -11,4 +13,5 @@ public record Account(
     int Passport,
     string Address,
     long pin,
-    decimal balance);
+    decimal balance,
+    TypeOfCard type);

@@ -1,5 +1,6 @@
 ﻿using Contracts.LoginResults;
 using Contracts.OperationResults;
+using Models.Accounts.TypesOfAccount;
 
 namespace BankSystemWebApp.Application.Contracts.Services.Accounts;
 
@@ -13,7 +14,8 @@ public interface IAccountService
         string age,
         string email,
         int passport,
-        string address);
+        string address,
+        TypeOfCard typeOfCard);
     Task<decimal> ShowAccountBalance();
     OperationResult AddMoney(decimal money);
     OperationResult RemoveMoney(decimal money);
